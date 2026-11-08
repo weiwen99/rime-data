@@ -68,9 +68,15 @@ switches:
     states: ["半角", "全角"]
     reset: 0
 
+# 中英/数字/半角标点边界自动空格；punct_mode: smart | both | off
+auto_spacer:
+  enable: true
+  punct_mode: smart
+
 engine:
   processors:
     - lua_processor@*yuhao.yuhao_switch_proc@yuhao_macro
+    - lua_processor@*auto_spacer
     - ascii_composer
     - recognizer
     - lua_processor@*yuhao.yuhao_chaifen_processor
